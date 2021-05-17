@@ -167,6 +167,7 @@ int mg_tls_init(struct mg_connection *c, struct mg_tls_opts *opts) {
   return 1;
 fail:
   c->is_closing = 1;
+  free(tls->ssl.hostname);
   free(tls);
   return 0;
 }
